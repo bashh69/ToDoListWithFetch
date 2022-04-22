@@ -5,13 +5,10 @@ import TodoList from "./TodoList";
 //create your first component
 import "./index.css";
 function Home() {
-	const [todos, setTodos] = useState([]);
-	const [input, setInput] = useState([]);
 	const APIURL = "https://assets.breatheco.de/apis/fake/todos/user/bacanasos";
 	const getSampleTask = () => {
 		fetch(APIURL)
 			.then((response) => response.json())
-			.then((newTodos) => setTodos(newTodos))
 			.then((response) => console.log(response));
 	};
 	const updateURL = () => {
