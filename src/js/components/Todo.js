@@ -4,17 +4,21 @@ import { RiCloseCircleLine } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
 
 const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
-	const [edit, setEdit] = useState({
-		id: null,
-		value: "",
-	});
+	const [edit, setEdit] = useState([
+		{
+			id: null,
+			value: "",
+		},
+	]);
 
 	const submitUpdate = (value) => {
 		updateTodo(edit.id, value);
-		setEdit({
-			id: null,
-			value: "",
-		});
+		setEdit([
+			{
+				id: null,
+				value: "",
+			},
+		]);
 	};
 
 	if (edit.id) {
@@ -25,9 +29,7 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
 		<div
 			className={todo.isComplete ? "todo-row complete" : "todo-row"}
 			key={index}>
-			<div key={todo.id} onClick={() => completeTodo(todo.id)}>
-				{todo.text}
-			</div>
+			<div onClick={() => completeTodo(todo.id)}>{todo.label}</div>
 			<div className="icons">
 				{/* this one will remove the todo */}
 				<RiCloseCircleLine

@@ -11,7 +11,7 @@ function TodoList() {
 			return;
 		}
 
-		const newTodos = [todo, ...todos];
+		const newTodos = [{ done: false, label: todo }, ...todos];
 
 		setTodos(newTodos);
 		console.log(...todos);
